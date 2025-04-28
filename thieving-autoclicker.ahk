@@ -11,14 +11,14 @@ CLICK2_MAX := CLICK1_MAX + 250
 TIMER_INTERVAL := 50
 RuneLite := WinExist("ahk_exe RuneLite.exe")
 
-global ClickVal1 := Random(CLICK1_MIN, CLICK1_MAX)
-global ClickVal2 := Random(CLICK2_MIN, CLICK2_MAX)
 global toggle := false
 global count := 0
+global ClickVal1
+global ClickVal2
 
 RefreshClickVal() {
-    global ClickVal1 := Random(150, 350)
-    global ClickVal2 := Random(450, 750)
+    global ClickVal1 := Random(CLICK1_MIN, CLICK1_MAX)
+    global ClickVal2 := Random(CLICK2_MIN, CLICK2_MAX)
 }
 
 ClickRandomly(Min, Max) {
