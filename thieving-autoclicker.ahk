@@ -19,12 +19,13 @@ RandClick(Min, Max) {
     Sleep(Rand)
 }
 
-IsOnWindow(WindowID) {
+IsOnWindow(WinID) {
     MouseGetPos , , &MouseWinID
-    return (MouseWinID = WindowID)
+    return (MouseWinID = WinID)
 }
 
 MainLoop() {
+    global toggle
     if !toggle
         return
     if (IsOnWindow(RuneLite))
@@ -34,14 +35,13 @@ MainLoop() {
 ; SHIFT + S to toggle on/off
 
 +s::{
-    global toggle, count
+    global toggle
     toggle := !toggle
 
-    if toggle {
+    if toggle
         SetTimer(MainLoop, TIMER_INTERVAL)
-    } else {
+    else
         SetTimer(MainLoop, false)
-    }
 }
 
 +2::Reload
